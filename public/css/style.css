@@ -1,0 +1,15 @@
+body {
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  background-color: rgb(218, 228, 236);
+}
+
+/* body * {
+  border: solid grey 1px;
+} */
+
+.nav-link {
+  border: solid grey 1px;
+}

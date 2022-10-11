@@ -1,0 +1,4 @@
+{{#each userSurveys as |userSurvey| }}
+<div class="pt-2">Dashboard for {{userSurvey.user.name}}</div>
+<div class="pt-2">{{userSurvey.title}} (created on {{format_date userSurvey.createdAt}})</div>
+{{/each}}

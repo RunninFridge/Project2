@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "title": "SURVEY1",
+        "content": "SURVEYplaceholder1",
+        "user_id": "1"
+    },
+    {
+        "id": "2",
+        "title": "SURVEY2",
+        "content": "SURVEYplaceholder2",
+        "user_id": "1"
+    },
+    {
+        "id": "3",
+        "title": "SURVEY3",
+        "content": "SURVEYplaceholder3",
+        "user_id": "2"
+    },
+    {
+        "id": "4",
+        "title": "SURVEY4",
+        "content": "SURVEYplaceholder4",
+        "user_id": "3"
+    },
+    {
+        "id": "5",
+        "title": "SURVEY5",
+        "content": "SURVEYplaceholder5",
+        "user_id": "3"
+    }
+]
