@@ -6,17 +6,18 @@ var json = {
       "elements": [
         {
           "type": "ranking",
-          "name": "smartphone-features",
-          "title": "Please rank the following smartphone features in order of importance:",
+          "name": "app-features",
+          "title": "Please rank the following app features in order of importance:",
           "isRequired": true,
           "choices": [
-            "Battery life",
-            "Screen size",
-            "Storage space",
-            "Camera quality",
-            "Durability",
-            "Processor power",
-            "Price"
+            "availability",
+            "ability to reserve time",
+            "price",
+            "payment methods",
+            "charging location reviews",
+            "charging speed",
+            "paid reservation",
+            "make ya dance"
           ]
         }
       ]
@@ -24,26 +25,49 @@ var json = {
       "name": "page2",
       "elements": [
         {
-          "type": "checkbox",
-          "name": "car",
+          "type": "radiogroup",
+          "name": "experience",
           "isRequired": true,
-          "title": "What cars have you being drived?",
+          "title": "What is your driving experience level with EVs?",
           "colCount": 4,
           "choicesOrder": "asc",
           "choices": [
-            "Ford",
-            "Vauxhall",
-            "Volkswagen",
-            "Nissan",
-            "Audi",
-            "Mercedes-Benz",
-            "BMW",
-            "Peugeot",
-            "Toyota",
-            "Citroen",
-            "Tesla"
+            "0-1 year",
+            "1-2 years",
+            "2-5 years",
+            "5+ years"
           ]
-        }, {
+        }
+      ]
+    }, {
+            "name": "page3",
+            "elements": [
+              {
+                "type": "checkbox",
+                "name": "car",
+                "isRequired": true,
+                "title": "What is your favorite EV brand?",
+                "colCount": 3,
+                "choicesOrder": "asc",
+                "choices": [
+                  "Ford",
+                  "Hyundai",
+                  "Volkswagen",
+                  "Nissan",
+                  "Audi",
+                  "Mercedes-Benz",
+                  "BMW",
+                  "Lucid Motors",
+                  "honda",
+                  "Toyota",
+                  "BYD",
+                  "Tesla",
+                  "Kia",
+                  "Chevrolet",
+                  "other"
+                ]
+              },
+              {
           "type": "ranking",
           "name": "bestcar",
           "isRequired": true,
