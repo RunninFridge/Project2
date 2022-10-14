@@ -10,23 +10,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-  <body>
+  <body class="bg-image" style="background-image: url('https://thumbs.dreamstime.com/b/electric-car-plugs-pinpointers-city-map-background-charging-station-locations-concept-d-illustration-chargers-network-pointers-208082839.jpg')">
 
-    <header class="display-flex justify-space-between align-center">
+    {{!-- <header class="display-flex justify-space-between align-center">
       <h1>
         CMEV Survey
       </h1>
-    </header>
+    </header> --}}
 
     <nav class="navbar navbar-expand-lg p-0">
-      <div class="container-fluid p-1">
+      <div class="container-fluid p-1v=">
         {{!-- <a class="navbar-brand" href="#">Navbar</a> --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            {{!-- <a class="nav-link p-1 m-2" href="/api/surveys/dashboard">Dashboard</a>     --}}
+            <a class="nav-link p-1 m-2" href="/api/surveys/dashboard">Dashboard</a>
             {{#if logged_in}}
             <a class="nav-link p-1 m-2" id="logout" href="#">Sign out</a>
             {{else}}
@@ -38,11 +38,15 @@
     </nav>
 
 
-    <main class="container container-fluid m-0 p-1">
+    <main class="container container-fluid m-0 p-1 bg-image">
       <!-- Render the contents of the sub layout here -->
       {{{ body }}}
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    {{#if logged_in}}
     <script src="/js/logout.js"></script>
+            {{else}}
+            {{!-- <a class="nav-link p-1 m-2" href="/login">Sign in</a> --}}
+            {{/if}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
