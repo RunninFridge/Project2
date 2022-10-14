@@ -15,7 +15,10 @@ router.get('/dashboard', auth, async (req, res) => {
     // res.json(userSurveys);
     res.render('dashboard', {
       userSurveys,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      api_key1: process.env.API_KEY1,
+      //NEED TO BUILD OUT ZIPCODE PATH
+      zip_code: '98008'
     });
   } catch (err) {
     res.status(500).json(err);
