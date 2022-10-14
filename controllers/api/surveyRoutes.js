@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const auth = require('../../utils/auth');
 const { User, Survey } = require('../../models');
+require('dotenv').config();
 
 router.get('/dashboard', auth, async (req, res) => {
   try {
