@@ -13,3 +13,13 @@ body {
 .nav-link {
   border: solid grey 1px;
 }
+
+.zip-map {
+  margin-left: 7px;
+}
+
+.gradient-custom-2 {
+  background: #84fab0;
+  background: -webkit-linear-gradient(to left, rgba(52,254,126,0.65), rgba(36,175,245,0.65));
+  background: linear-gradient(to left, rgba(52,254,126,0.65), rgba(36,175,244,0.65));
+}
