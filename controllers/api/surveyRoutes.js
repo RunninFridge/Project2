@@ -40,6 +40,7 @@ router.get('/dashboard/:zip', auth, async (req, res) => {
 //   }
 // })
 
+
 router.get('/:surveyId', async (req, res) => {
   try {
     const surveyData = await Survey.findByPk(req.params.surveyId);
@@ -49,6 +50,20 @@ router.get('/:surveyId', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post('/saveSurvey', async (req, res) => {
+  try {
+    const surveyData = await Survey.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id
+    });
+    res.json(surveyData);
+
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

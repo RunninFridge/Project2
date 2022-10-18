@@ -1,3 +1,7 @@
+const arr=[]
+
+
+
 Survey.StylesManager.applyTheme("defaultV2");
 var json = {
   "pages": [
@@ -43,7 +47,7 @@ var json = {
             "name": "page3",
             "elements": [
               {
-                "type": "checkbox",
+                "type": "radiogroup",
                 "name": "car",
                 "isRequired": true,
                 "title": "What is your favorite EV brand?",
@@ -66,22 +70,54 @@ var json = {
                   "Chevrolet",
                   "other"
                 ]
-              },
-              {
-          "type": "ranking",
-          "name": "bestcar",
-          "isRequired": true,
-          "visibleIf": "{car.length} > 1",
-          "title": "What car did you enjoy the most?",
-          "choicesFromQuestion": "car",
-          "choicesFromQuestionMode": "selected"
-        }
+              }
+             // {
+        //   "type": "ranking",
+        //   "name": "bestcar",
+        //   "isRequired": true,
+        //   "visibleIf": "{car.length} > 1",
+        //   "title": "What car did you enjoy the most?",
+        //   "choicesFromQuestion": "car",
+        //   "choicesFromQuestionMode": "selected"
+        // }
       ]
     }
   ]
 };
-window.survey = new Survey.Model(json);
-survey.onComplete.add(function (sender) {
-  document.querySelector('#surveyResult').textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
+ window.survey = new Survey.Model(json);
+ survey.onComplete.add(async function (sender) {
+  
+//   //document.querySelector('#surveyResult').textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
+//   localStorage.setItem('session',JSON.stringify(sender.data,null, 3));
+  
+//   const string = JSON.stringify(sender.data);
+//   const myObject = JSON.parse(string);
+//   console.log();
+  
+//   //var session = localStorage.getItem('session');
+//   //console.log('session: JSON.parse(session));')
+
+//   //const out = JSON.parse(localStorage.getItem(sender.data));
+//   //console.log(out);
+console.log(sender.data);
+if (sender.data) {
+  const response = await fetch('/api/surveys/saveSurvey', {
+    method: 'POST',
+        body:{
+        title: "",
+        //content: JSON.stringify(sender.data,null, 3),
+        content:sender.data,
+        //user_id: req.body.user_idß
+        },
+    
+        headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to log in');
+  }
+}
 });
 $("#surveyElement").Survey({model: survey});
