@@ -5,11 +5,12 @@ require('dotenv').config();
 
 router.get('/dashboard/:zip', auth, async (req, res) => {
   try {
-    var zip = req.params.zip
-    if  (!req.params.zip){
-      zip = '98122'
+    let zip = 98122;
+    console.log(zip);
+    if (req.params.zip) {
+      zip = req.params.zip;
     }; 
-    console.log(req.params.zip);
+    // console.log(req.params.zip);
     const userSurveysData = await Survey.findAll({
       include: { 
         model: User, 
