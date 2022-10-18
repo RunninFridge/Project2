@@ -3,8 +3,13 @@ const auth = require('../../utils/auth');
 const { User, Survey } = require('../../models');
 require('dotenv').config();
 
-router.get('/dashboard', auth, async (req, res) => {
+router.get('/dashboard/:zip', auth, async (req, res) => {
   try {
+    var zip = req.params.zip
+    if  (!req.params.zip){
+      zip = '98122'
+    }; 
+    console.log(req.params.zip);
     const userSurveysData = await Survey.findAll({
       include: { 
         model: User, 
@@ -18,14 +23,22 @@ router.get('/dashboard', auth, async (req, res) => {
       userSurveys,
       logged_in: req.session.logged_in,
       api_key1: process.env.API_KEY1,
-      //NEED TO BUILD OUT ZIPCODE PATH
-      zip_code: '98008'
+      zip_code: zip
     });
   } catch (err) {
     res.status(500).json(err);
   }
 })
 
+// router.post('/dashboard/:zip', auth, async (req, res) => {
+//   try {
+//     res.render('dashboard', {
+//       zip_code: req.params.zip
+//     });console.log(req.params.zip);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// })
 
 router.get('/:surveyId', async (req, res) => {
   try {

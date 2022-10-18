@@ -2,16 +2,44 @@
 <div class="pt-2">Dashboard for {{userSurvey.user.name}}</div>
 <div class="pt-2">{{userSurvey.title}} (created on {{format_date userSurvey.createdAt}})</div>
 {{/each}}
-<iframe
-  width="300"
-  height="300"
-  style="border:1"
-  loading="lazy"
-  allowfullscreen 
-  referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key={{api_key1}}
-    &q=EV+charging+station+{{zip_code}}">
-</iframe>
-<div id="surveyElement" style="display:inline-block;width:100%;"></div>
-<div id="surveyResult"></div>
+  <div class="container py-9 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-12">
+        <div class="card rounded-10">
+          <div class="row g-0">
+            <div class="col-lg-6 p-md-4">
+                <div class="input-group zip-map">
+                  <input id="search" type="search" class="form-control rounded" placeholder="Zipcode" aria-label="Search" aria-describedby="searcj-addpn"/>
+                  <button type="button" class="btn btn-outline-success search-btn">search</button>
+                </div>
+              <div class="card-body p-md-2">
+                <iframe
+                  width="450"
+                  height="450"
+                  height-top="100"
+                  width-left="100"
+                  style="border:5"
+                  loading="full"
+                  allowfullscreen 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed/v1/place?key={{api_key1}}
+                    &q=EV+charging+station+{{zip_code}}">
+                </iframe>
+              </div>
+            </div>
+              <div class="col-lg-4 d-flex align-items-center">
+                <div class="px-4 py-6 p-md-4">
+                  <div id="surveyElement" style="display:inline-block;width:125%;"></div>
+                  <div id="surveyResult"></div>
+              </div>
+            </div>
+          </div>
+        </div>            
+      </div>
+    </div>
+  </div>
+
 <script src="/js/dashboard.js"></script>
+<script src="/js/search.js"></script>
+</div>
+</div>

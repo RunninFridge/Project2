@@ -33,8 +33,8 @@ var json = {
           "choicesOrder": "asc",
           "choices": [
             "0-1 year",
-            "1-2 years",
-            "2-5 years",
+            "1-3 years",
+            "3-5 years",
             "5+ years"
           ]
         }
