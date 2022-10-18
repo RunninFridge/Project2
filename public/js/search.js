@@ -6,7 +6,9 @@ $('.search-btn').on('click', async function(event){
     event.preventDefault();
     const zip_code = $('#search').val();
     console.log(zip_code);
-    document.location.replace(`/api/surveys/dashboard/${zip_code}`)
+    if (zip_code) {
+      document.location.replace(`/api/surveys/dashboard/${zip_code}`)
+    } else alert("Please enter a zip code")
 //     $.getJSON(`https://www.google.com/maps/embed/v1/place?key=${api_key1}
 //     &q=EV+charging+station+${zip_code}`
 
@@ -16,9 +18,9 @@ $('.search-btn').on('click', async function(event){
         //   headers: { 'Content-Type': 'application/json' },
         // });
     
-        if (response.ok) {
-          //document.location.replace('/');
-        } else {
-          alert('No zipcode input');
-        }
+        // if (response.ok) {
+        //   //document.location.replace('/');
+        // } else {
+        //   alert('No zipcode input');
+        // }
 });

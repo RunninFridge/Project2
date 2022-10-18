@@ -103,20 +103,20 @@ console.log(sender.data);
 if (sender.data) {
   const response = await fetch('/api/surveys/saveSurvey', {
     method: 'POST',
-        body:{
-        title: "",
-        //content: JSON.stringify(sender.data,null, 3),
-        content:sender.data,
-        //user_id: req.body.user_idß
-        },
-    
-        headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: "Survey result",
+      //content: JSON.stringify(sender.data,null, 3),
+      content: JSON.stringify(sender.data),
+      //user_id: req.body.user_id
+    }),    
+    headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    alert('Survey saved successfully');
+    //document.location.replace('/');
   } else {
-    alert('Failed to log in');
+    alert('Failed to save survey');
   }
 }
 });
