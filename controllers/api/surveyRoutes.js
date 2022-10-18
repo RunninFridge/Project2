@@ -20,11 +20,14 @@ router.get('/dashboard', auth, async (req, res) => {
       api_key1: process.env.API_KEY1,
       //NEED TO BUILD OUT ZIPCODE PATH
       zip_code: '98008'
-    });
+    })
+    
+  
   } catch (err) {
     res.status(500).json(err);
   }
 })
+
 
 
 router.get('/:surveyId', async (req, res) => {
@@ -36,6 +39,20 @@ router.get('/:surveyId', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post('/saveSurvey', async (req, res) => {
+  try {
+    const surveyData = await Survey.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id
+    });
+    res.json(surveyData);
+
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
