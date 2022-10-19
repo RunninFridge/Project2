@@ -1,7 +1,4 @@
-const arr=[]
-
-
-
+//Launch survey
 Survey.StylesManager.applyTheme("defaultV2");
 var json = {
   "pages": [
@@ -14,14 +11,14 @@ var json = {
           "title": "Please rank the following app features in order of importance:",
           "isRequired": true,
           "choices": [
-            "availability",
-            "ability to reserve time",
-            "price",
-            "payment methods",
-            "charging location reviews",
-            "charging speed",
-            "paid reservation",
-            "make ya dance"
+            "Availability",
+            "Ability to reserve time",
+            "Price",
+            "Payment methods",
+            "Charging location reviews",
+            "Charging speed",
+            "Paid reservation",
+            "Make ya dance"
           ]
         }
       ]
@@ -39,7 +36,7 @@ var json = {
             "0-1 year",
             "1-3 years",
             "3-5 years",
-            "5+ years"
+            "> 5 years"
           ]
         }
       ]
@@ -62,13 +59,13 @@ var json = {
                   "Mercedes-Benz",
                   "BMW",
                   "Lucid Motors",
-                  "honda",
+                  "Honda",
                   "Toyota",
                   "BYD",
                   "Tesla",
                   "Kia",
                   "Chevrolet",
-                  "other"
+                  "Other"
                 ]
               }
              // {
@@ -84,28 +81,16 @@ var json = {
     }
   ]
 };
- window.survey = new Survey.Model(json);
- survey.onComplete.add(async function (sender) {
-  
-//   //document.querySelector('#surveyResult').textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
-//   localStorage.setItem('session',JSON.stringify(sender.data,null, 3));
-  
-//   const string = JSON.stringify(sender.data);
-//   const myObject = JSON.parse(string);
-//   console.log();
-  
-//   //var session = localStorage.getItem('session');
-//   //console.log('session: JSON.parse(session));')
+window.survey = new Survey.Model(json);
+survey.onComplete.add(async function (sender) {
 
-//   //const out = JSON.parse(localStorage.getItem(sender.data));
-//   //console.log(out);
+//saving survey results to survey_db
 console.log(sender.data);
 if (sender.data) {
   const response = await fetch('/api/surveys/saveSurvey', {
     method: 'POST',
     body: JSON.stringify({
       title: "Survey result",
-      //content: JSON.stringify(sender.data,null, 3),
       content: JSON.stringify(sender.data),
       //user_id: req.body.user_id
     }),    
@@ -114,7 +99,6 @@ if (sender.data) {
 
   if (response.ok) {
     alert('Survey saved successfully');
-    //document.location.replace('/');
   } else {
     alert('Failed to save survey');
   }
