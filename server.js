@@ -16,7 +16,8 @@ const handlebars = expressHandlebars.create({ helpers });
 const sess = {
   secret: 'project secret',
   cookie: {
-    maxAge: 2 * 60 * 1000, // expires after 2 minutes
+    //maintain sign-in for 2 minutes using cookie/session
+    maxAge: 2 * 60 * 1000, 
   },
   resave: false,
   saveUninitialized: true,

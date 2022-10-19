@@ -14,6 +14,7 @@ const signupFormHandler = async (event) => {
   
       if (response.ok) {
         alert('Account created');
+        //signed in if account created
         const signIn = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),

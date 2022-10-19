@@ -3,6 +3,7 @@ const auth = require('../../utils/auth');
 const { User, Survey } = require('../../models');
 require('dotenv').config();
 
+//GET route to print dashboard page and pass in zip code
 router.get('/dashboard/:zip', auth, async (req, res) => {
   try {
     let zip = 98122;
@@ -54,6 +55,7 @@ router.get('/:surveyId', async (req, res) => {
   }
 });
 
+//POST route to save survey resuls to charger_db
 router.post('/saveSurvey', async (req, res) => {
   try {
     const surveyData = await Survey.create({
