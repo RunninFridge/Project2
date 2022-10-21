@@ -16,7 +16,9 @@ NA
 Node, Express, Sequelize, MySQL, dotenv, bcrypt, SurveyJS
 
 ## Usage
-For demonstration purpose only.
+For demonstration purpose only. <br />
+Screenshot: <br />
+![alt text](/assets/images/Screenshot.png)
 
 ## Credits
 Developed from scratch.
